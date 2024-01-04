@@ -1,0 +1,13 @@
+<!-- carpets/templates/carpets/post_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">{{ post.title }}</h1>
+    <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid my-4">
+    <p class="lead">{{ post.characteristics }}</p>
+    <p>{{ post.description }}</p>
+    <a href="{{ post.store_link }}" target="_blank" class="btn btn-primary">Магазин</a>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary">Назад до списку постів</a>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- carpets/templates/carpets/post_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Список постів</h1>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <!-- Додайте цей код до вашого шаблону, де ви виводите фотографію -->
+                <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid" style="max-width: 100%; height: auto;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-outline-secondary">Детальніше</a>
+                        <a href="{% url 'post_update' post.id %}" class="btn btn-sm btn-outline-secondary">Редагувати</a>
+                        <a href="{% url 'post_delete' post.id %}" class="btn btn-sm btn-outline-danger">Видалити</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.characteristics }}</p>
+                    <p class="card-text">{{ post.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{% url 'post_detail' post.id %}" class="btn btn-sm btn-outline-secondary">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

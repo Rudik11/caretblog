@@ -1,0 +1,13 @@
+<!-- carpets/templates/carpets/post_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Ви впевнені, що хочете видалити пост "{{ post.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Так, видалити</button>
+    </form>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary mt-2">Назад до списку постів</a>
+</div>
+{% endblock %}

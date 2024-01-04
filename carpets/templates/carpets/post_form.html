@@ -1,0 +1,14 @@
+<!-- carpets/templates/carpets/post_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">{{ action }} пост</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Зберегти</button>
+    </form>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary mt-2">Назад до списку постів</a>
+</div>
+{% endblock %}
