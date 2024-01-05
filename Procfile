@@ -1,1 +1,1 @@
-web: gunicorn carpet_blog
+web: gunicorn carpet_blog.wsgi
